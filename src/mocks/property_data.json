@@ -1,0 +1,89 @@
+{
+	"id": 1,
+	"name": "Property ${id}",
+	"description": "Short description of this NFT property",
+	"external_link": "https://gamenyx.com/property/1",
+	"image": "https://storage.googleapis.com/opensea-prod.appspot.com/puffs/3.png",
+	"youtube_url": "",
+	"animation_url": "",
+	"owner_name": "Goodman James",
+	"doing_business_as": null,
+	"property_identification_number": 282798,
+	"geo_identification_number": "04990-102-0050",
+	"legal_description": "CB 4990A BLK 2LOT 5",
+	"state_code": "A1",
+	"address": "205 CREST TRL HILL VILLAGE, TX 78232",
+	"taxing_jurisdictions": "10 09 11, 29, 08, 06, 55, CAD",
+	"appraised_value": "$645,000",
+	"neighborhood": "HILL CNTRY VILL (NE)",
+	"abstract_code": "A04990",
+	"ccr_declaration": "",
+	"operating_agreement": "",
+	"membership_contract": "",
+	"dao_contract": "",
+	"attributes": [
+		{
+			"trait_type": "market_value_of_home",
+			"value": 645000,
+			"display_type": "number"
+		},
+		{
+			"trait_type": "square_feet",
+			"value": 101714,
+			"display_type": "number"
+		},
+		{
+			"trait_type": "estimated_monthly_payment",
+			"value": 1017,
+			"display_type": "number"
+		},
+		{
+			"trait_type": "year_built",
+			"value": 1377594000,
+			"display_type": "date"
+		},
+		{
+			"trait_type": "lot_size",
+			"value": 2824,
+			"display_type": "number"
+		},
+		{
+			"trait_type": "monthly_hoa_fee",
+			"value": 777,
+			"display_type": "number"
+		},
+		{
+			"trait_type": "number_of_parking",
+			"value": 7,
+			"display_type": "number"
+		},
+		{
+			"trait_type": "price_per_sqft",
+			"value": 77,
+			"display_type": "number"
+		},
+		{
+			"trait_type": "bed_bath_dimensions",
+			"value": 7,
+			"display_type": "number"
+		},
+		{
+			"trait_type": "time_on_marketplace",
+			"value": 3,
+			"display_type": "number"
+		},
+		{
+			"trait_type": "views",
+			"value": 777,
+			"display_type": "number"
+		},
+		{
+			"trait_type": "saves",
+			"value": 777,
+			"display_type": "number"
+		}
+	],
+	"heating": "",
+	"cooling": "",
+	"standout_features": []
+}

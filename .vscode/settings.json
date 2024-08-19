@@ -1,0 +1,4 @@
+{
+    "inline-bookmarks.view.showVisibleFilesOnly": false,
+    "livePreview.defaultPreviewPath": "/coverage/lcov-report/src/index.html"
+}

@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="58c3edd3-6c76-4dac-966f-000a9a9b3b88" name="Default Changelist" comment=".4">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< Updated upstream
+      <change beforePath="$PROJECT_DIR$/src/admin/pages/investors/TransferNft.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/pages/investors/TransferNft.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/Nft.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/Nft.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/blockchain/actions/MLInvestorsNFTAction.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/blockchain/actions/MLInvestorsNFTAction.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/user/pages/NftDetail.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/pages/NftDetail.tsx" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/src/RouteAdmin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/RouteAdmin.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RouteAdmin_10232022.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/admin/pages/Sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/pages/Sidebar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/admin/pages/home/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/pages/home/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/admin/pages/home/Menu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/pages/home/Menu.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/admin/pages/home/settings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/pages/home/settings.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/admin/pages/tokens/Mint.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/admin/pages/tokens/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/pages/tokens/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/admin/pages/tokens/tabs/TabBurn.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/pages/tokens/tabs/TabBurn.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/admin/pages/tokens/tabs/TabMint.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/pages/tokens/tabs/TabMint.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/admin/pages/tokens/tabs/TabTransfer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/pages/tokens/tabs/TabTransfer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/Token.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/Token.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/blockchain/actions/MLTokenAction.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/blockchain/actions/MLTokenAction.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/user/pages/UserInvestors.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/pages/UserInvestors.tsx" afterDir="false" />
+>>>>>>> Stashed changes
+      <change beforePath="$PROJECT_DIR$/src/user/pages/tabs/TabInventory.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/pages/tabs/TabInventory.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/user/pages/tabs/TabRewards.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/pages/tabs/TabRewards.tsx" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="aa3j421w" />
+  </component>
+  <component name="ProjectId" id="2CWua9elh3WCvPnI2oi2fzOQcRF" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="exceleditor.install" value="true" />
+<<<<<<< Updated upstream
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/assets/images" />
+=======
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/admin/pages/tokens/tabs" />
+>>>>>>> Stashed changes
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
+  </component>
+  <component name="RecentsManager">
+<<<<<<< Updated upstream
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/assets/images" />
+      <recent name="$PROJECT_DIR$/src/admin/pages/tokens/tabs" />
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/components" />
+      <recent name="$PROJECT_DIR$/src/user/pages" />
+    </key>
+=======
+>>>>>>> Stashed changes
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/admin/pages/properties" />
+      <recent name="$PROJECT_DIR$/src/user/pages" />
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/components" />
+      <recent name="$PROJECT_DIR$/src/admin" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/admin/pages/tokens/tabs" />
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/assets/images" />
+      <recent name="$PROJECT_DIR$/src/components" />
+      <recent name="$PROJECT_DIR$/src/user/pages" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="58c3edd3-6c76-4dac-966f-000a9a9b3b88" name="Default Changelist" comment="" />
+      <created>1658930722124</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1658930722124</updated>
+      <workItem from="1658930723521" duration="659000" />
+      <workItem from="1658974947547" duration="17202000" />
+      <workItem from="1659058165026" duration="2296000" />
+      <workItem from="1659192309060" duration="12811000" />
+      <workItem from="1659356188709" duration="1039000" />
+      <workItem from="1659357667233" duration="41513000" />
+      <workItem from="1659491925649" duration="27888000" />
+      <workItem from="1659581848602" duration="20756000" />
+      <workItem from="1659659171463" duration="1344000" />
+      <workItem from="1659858730716" duration="20334000" />
+      <workItem from="1659923264271" duration="37924000" />
+      <workItem from="1660010847209" duration="27663000" />
+      <workItem from="1660702910709" duration="1852000" />
+      <workItem from="1660715581002" duration="505000" />
+      <workItem from="1660793350218" duration="977000" />
+      <workItem from="1660794575986" duration="31946000" />
+      <workItem from="1660870855037" duration="4808000" />
+      <workItem from="1661136382165" duration="15419000" />
+      <workItem from="1661259801499" duration="751000" />
+      <workItem from="1661261662031" duration="7368000" />
+      <workItem from="1661311105178" duration="22929000" />
+      <workItem from="1661347592344" duration="1134000" />
+      <workItem from="1661394223615" duration="21710000" />
+      <workItem from="1661484588908" duration="29793000" />
+      <workItem from="1661565239855" duration="30019000" />
+      <workItem from="1661658688568" duration="565000" />
+      <workItem from="1661666991174" duration="1020000" />
+      <workItem from="1661689750878" duration="5706000" />
+      <workItem from="1661826923205" duration="18007000" />
+      <workItem from="1661944205131" duration="7092000" />
+      <workItem from="1661997372578" duration="24117000" />
+      <workItem from="1662088653435" duration="8527000" />
+      <workItem from="1662348733264" duration="42414000" />
+      <workItem from="1662732190042" duration="505000" />
+      <workItem from="1662777034517" duration="7661000" />
+      <workItem from="1662870213381" duration="18020000" />
+      <workItem from="1662952281293" duration="20560000" />
+      <workItem from="1663031547548" duration="19721000" />
+      <workItem from="1663080780895" duration="5799000" />
+      <workItem from="1663116024078" duration="17673000" />
+      <workItem from="1663403743471" duration="1296000" />
+      <workItem from="1663569499129" duration="685000" />
+      <workItem from="1663646644676" duration="2571000" />
+      <workItem from="1663658103231" duration="1303000" />
+      <workItem from="1663669254116" duration="1166000" />
+      <workItem from="1663681816967" duration="224000" />
+      <workItem from="1663682694844" duration="796000" />
+      <workItem from="1663728858010" duration="2782000" />
+      <workItem from="1663739501726" duration="16221000" />
+      <workItem from="1663914641105" duration="652000" />
+      <workItem from="1663923644451" duration="32000" />
+      <workItem from="1663923707446" duration="35000" />
+      <workItem from="1663934551935" duration="5265000" />
+      <workItem from="1663990248583" duration="22404000" />
+      <workItem from="1664073087324" duration="30603000" />
+      <workItem from="1664242279928" duration="10000" />
+      <workItem from="1664242417336" duration="1162000" />
+      <workItem from="1664331638199" duration="235000" />
+      <workItem from="1664421793872" duration="487000" />
+      <workItem from="1664422874285" duration="3288000" />
+      <workItem from="1664451712905" duration="6639000" />
+      <workItem from="1664460259984" duration="3431000" />
+      <workItem from="1664709940612" duration="283000" />
+      <workItem from="1664761024110" duration="6590000" />
+      <workItem from="1664791520843" duration="4686000" />
+      <workItem from="1664847312008" duration="3311000" />
+      <workItem from="1664867654879" duration="9724000" />
+      <workItem from="1664940810944" duration="9411000" />
+      <workItem from="1664972137914" duration="1712000" />
+      <workItem from="1664981063722" duration="419000" />
+      <workItem from="1665033458699" duration="6400000" />
+      <workItem from="1665112978838" duration="102000" />
+      <workItem from="1665317982393" duration="6285000" />
+      <workItem from="1665385886112" duration="7365000" />
+      <workItem from="1665393989023" duration="2562000" />
+      <workItem from="1665497085694" duration="641000" />
+      <workItem from="1665540054361" duration="6988000" />
+      <workItem from="1665581194290" duration="4504000" />
+      <workItem from="1665642303295" duration="14664000" />
+      <workItem from="1665710938725" duration="35935000" />
+      <workItem from="1665838622843" duration="617000" />
+      <workItem from="1665888291132" duration="151000" />
+      <workItem from="1665896738860" duration="12405000" />
+      <workItem from="1665971045840" duration="975000" />
+      <workItem from="1665984634809" duration="18461000" />
+      <workItem from="1666058899008" duration="24395000" />
+      <workItem from="1666142209425" duration="27240000" />
+      <workItem from="1666252962721" duration="7544000" />
+      <workItem from="1666318801361" duration="6282000" />
+      <workItem from="1666330791683" duration="27376000" />
+      <workItem from="1666491381562" duration="14825000" />
+      <workItem from="1666509354162" duration="31636000" />
+      <workItem from="1666575785268" duration="13029000" />
+      <workItem from="1666658240781" duration="102000" />
+      <workItem from="1666662985707" duration="8470000" />
+      <workItem from="1666747198374" duration="1303000" />
+      <workItem from="1666784674025" duration="14701000" />
+      <workItem from="1666854466630" duration="44000" />
+      <workItem from="1666865398565" duration="3020000" />
+      <workItem from="1666933082217" duration="273000" />
+      <workItem from="1667183724408" duration="7639000" />
+      <workItem from="1667274684102" duration="3282000" />
+      <workItem from="1667278312055" duration="5585000" />
+      <workItem from="1667315640595" duration="9419000" />
+      <workItem from="1667356161839" duration="5233000" />
+      <workItem from="1667371287188" duration="4185000" />
+      <workItem from="1667383506554" duration="4678000" />
+      <workItem from="1667467949190" duration="5485000" />
+      <workItem from="1667531565086" duration="377000" />
+      <workItem from="1667697306857" duration="19201000" />
+      <workItem from="1667747034628" duration="3384000" />
+<<<<<<< Updated upstream
+      <workItem from="1667874901035" duration="10552000" />
+      <workItem from="1667897875174" duration="161000" />
+      <workItem from="1667913258667" duration="7734000" />
+      <workItem from="1667961297570" duration="24745000" />
+      <workItem from="1668043095936" duration="2226000" />
+      <workItem from="1668050325382" duration="50000" />
+      <workItem from="1668135267498" duration="49000" />
+      <workItem from="1668563367909" duration="11797000" />
+      <workItem from="1668751240711" duration="1793000" />
+      <workItem from="1668865013711" duration="1422000" />
+      <workItem from="1668931506250" duration="11279000" />
+=======
+>>>>>>> Stashed changes
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="360" y="207" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1665645944300">
+      <screen x="0" y="23" width="1792" height="1045" />
+    </state>
+    <state x="360" y="207" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1792.1045@0.23.1792.1045" timestamp="1665645944300" />
+    <state x="360" y="207" key="#com.intellij.execution.impl.EditConfigurationsDialog/1792.23.1600.877/0.23.1792.1045@0.23.1792.1045" timestamp="1662447876890" />
+    <state x="360" y="207" key="#com.intellij.execution.impl.EditConfigurationsDialog/1792.243.1600.877/0.23.1792.1045@0.23.1792.1045" timestamp="1663942613639" />
+    <state x="621" y="353" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1666542371998">
+      <screen x="0" y="23" width="1792" height="1045" />
+    </state>
+    <state x="621" y="353" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1792.1045@0.23.1792.1045" timestamp="1666542371998" />
+    <state x="709" y="266" key="#com.intellij.ide.util.MemberChooser" timestamp="1661161149230">
+      <screen x="0" y="23" width="1792" height="1045" />
+    </state>
+    <state x="709" y="266" key="#com.intellij.ide.util.MemberChooser/0.23.1792.1045@0.23.1792.1045" timestamp="1661161149230" />
+<<<<<<< Updated upstream
+    <state x="100" y="123" width="1592" height="845" key="DiffContextDialog" timestamp="1668654415632">
+      <screen x="0" y="23" width="1792" height="1045" />
+    </state>
+    <state x="100" y="123" width="1592" height="845" key="DiffContextDialog/0.23.1792.1045@0.23.1792.1045" timestamp="1668654415632" />
+    <state x="671" y="273" key="RollbackChangesDialog" timestamp="1667964537049">
+=======
+    <state x="709" y="265" key="#com.intellij.ide.util.MemberChooser/1792.23.1600.877/0.23.1792.1039@0.23.1792.1039" timestamp="1659619726941" />
+    <state x="100" y="123" width="1592" height="845" key="DiffContextDialog" timestamp="1667699637727">
+      <screen x="0" y="23" width="1792" height="1045" />
+    </state>
+    <state x="100" y="123" width="1592" height="845" key="DiffContextDialog/0.23.1792.1045@0.23.1792.1045" timestamp="1667699637727" />
+    <state x="671" y="273" key="RollbackChangesDialog" timestamp="1667392022045">
+>>>>>>> Stashed changes
+      <screen x="0" y="23" width="1792" height="1045" />
+    </state>
+    <state x="671" y="273" key="RollbackChangesDialog/0.23.1792.1045@0.23.1792.1045" timestamp="1667964537049" />
+    <state x="671" y="273" key="RollbackChangesDialog/1792.153.1600.877/0.23.1792.1045@0.23.1792.1045" timestamp="1664461126365" />
+<<<<<<< Updated upstream
+    <state x="397" y="184" key="SettingsEditor" timestamp="1668044797812">
+      <screen x="0" y="23" width="1792" height="1045" />
+    </state>
+    <state x="397" y="184" key="SettingsEditor/0.23.1792.1045@0.23.1792.1045" timestamp="1668044797812" />
+    <state x="204" y="23" width="1340" height="897" key="find.popup" timestamp="1668952479019">
+      <screen x="0" y="23" width="1792" height="1045" />
+    </state>
+    <state x="204" y="23" width="1340" height="897" key="find.popup/0.23.1792.1045@0.23.1792.1045" timestamp="1668952479019" />
+=======
+    <state x="204" y="23" width="1340" height="897" key="find.popup" timestamp="1667748257700">
+      <screen x="0" y="23" width="1792" height="1045" />
+    </state>
+    <state x="204" y="23" width="1340" height="897" key="find.popup/0.23.1792.1045@0.23.1792.1045" timestamp="1667748257700" />
+>>>>>>> Stashed changes
+    <state x="189" y="23" width="1340" height="942" key="find.popup/0.23.1792.1097@0.23.1792.1097" timestamp="1663757119582" />
+    <state x="189" y="23" width="1340" height="942" key="find.popup/1792.-82.1600.877/0.23.1792.1097@0.23.1792.1097" timestamp="1663752132622" />
+    <state x="224" y="23" width="1340" height="898" key="find.popup/1792.153.1600.877/0.23.1792.1045@0.23.1792.1045" timestamp="1664461516040" />
+    <state x="224" y="23" width="1340" height="942" key="find.popup/1792.153.1600.877/0.23.1792.1097@0.23.1792.1097" timestamp="1664455567414" />
+    <state x="224" y="23" width="1340" height="898" key="find.popup/1792.168.1600.877/0.23.1792.1045@0.23.1792.1045" timestamp="1664761721918" />
+    <state x="189" y="23" width="1340" height="897" key="find.popup/1792.23.1600.877/0.23.1792.1045@0.23.1792.1045" timestamp="1663068829479" />
+    <state x="189" y="23" width="1340" height="898" key="find.popup/1792.243.1600.877/0.23.1792.1045@0.23.1792.1045" timestamp="1664107459348" />
+    <state x="189" y="23" width="1340" height="897" key="find.popup/1792.340.1600.877/0.23.1792.1045@0.23.1792.1045" timestamp="1663749515228" />
+    <state x="561" y="252" key="run.anything.popup" timestamp="1667962796377">
+      <screen x="0" y="23" width="1792" height="1045" />
+    </state>
+    <state x="561" y="252" key="run.anything.popup/0.23.1792.1045@0.23.1792.1045" timestamp="1667962796377" />
+    <state x="561" y="252" key="run.anything.popup/1792.77.1600.877/0.23.1792.1045@0.23.1792.1045" timestamp="1663646652721" />
+    <state x="561" y="254" width="670" height="680" key="search.everywhere.popup" timestamp="1666791667290">
+      <screen x="0" y="23" width="1792" height="1045" />
+    </state>
+    <state x="561" y="254" width="670" height="680" key="search.everywhere.popup/0.23.1792.1045@0.23.1792.1045" timestamp="1666791667290" />
+  </component>
+</project>

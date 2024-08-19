@@ -1,0 +1,42 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+/src/admin/pages/Header_Web3Modal.tsx
+/src/admin/pages/tokens_open
+
+/src/admin/pages/tokens_open/Burn.tsx
+/src/admin/pages/tokens_open/Holders.tsx
+/src/admin/pages/tokens_open/index.tsx
+/src/admin/pages/tokens_open/Info.tsx
+/src/admin/pages/tokens_open/Mint.tsx
+/src/admin/pages/tokens_open/Transfer.tsx
+
+/src/App_09112022.tsx
+/src/App_Web3Modal.tsx
+/src/RouteAdmin_NoAuth.tsx
+/src/admin/pages/Header_NoAuth.tsx
+/src/assets/images/ethereum-icon-red-sample.svg
+/src/assets/images/person.svg
+/src/user/pages/Home_delete.tsx

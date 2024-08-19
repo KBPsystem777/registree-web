@@ -1,0 +1,124 @@
+@font-face {
+  font-family: 'Poppins-Thin';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../src/assets/fonts/Poppins/Poppins-Thin.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Poppins-Light';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../src/assets/fonts/Poppins/Poppins-Light.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Poppins-Medium';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../src/assets/fonts/Poppins/Poppins-Medium.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Poppins-Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../src/assets/fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Poppins-SemiBold';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../src/assets/fonts/Poppins/Poppins-SemiBold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Poppins-Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../src/assets/fonts/Poppins/Poppins-Bold.ttf') format('truetype');
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, 'Poppins-Light', BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  /*-webkit-font-smoothing: antialiased;*/
+  /*-moz-osx-font-smoothing: grayscale;*/
+  scroll-behavior: smooth;
+  overflow-x:hidden;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+#ml-dropdown-basic-button {
+  background-color: transparent;
+  color: rgba(0,0,0,0.7);
+  font-family: Poppins;
+  font-size: 14px;
+  border: none !important;
+  outline: none !important;
+  -webkit-appearance:none;
+  box-shadow: none !important;
+}
+#ml-dropdown-basic-button-mobile {
+  background-color: transparent;
+  color: #ffffff;
+  font-family: Poppins;
+  font-size: 14px;
+  border: none !important;
+  outline: none !important;
+  -webkit-appearance:none;
+  box-shadow: none !important;
+}
+.ml-dropdown-item {
+  color: rgba(0,0,0,0.5);
+  font-family: Poppins-Light;
+  font-size: 14px;
+}
+.ml-dropdown-item:hover {
+  color: rgba(0,0,0,0.5);
+}
+
+#ml-badge-dropdown-basic {
+  background-color: transparent;
+  color: #000000;
+  border: none !important;
+  outline: none !important;
+  -webkit-appearance:none;
+  box-shadow: none !important;
+}
+
+/**
+BOOTSTRAP
+ */
+.accordion-button::after {
+  background-image: initial;
+  width: 0;
+}
+
+.accordion-button:not(.collapsed)::after {
+  background-image: initial;
+  width: 0;
+}
+.accordion-button.collapsed::after {
+  background-image: initial;
+  width: 0;
+}
+
+.account-dashboad {
+  padding: 4% 4% 2% 4% !important;
+}
+
+/*remove react-bootstrap dropdown arrow*/
+.dropdown-toggle::after {
+  display: none !important;
+  background-color: #fff !important;
+}
+/*remove react-bootstrap dropdown outline*/
+#nftdetail-quick-dd .dropdown-toggle {
+  color: #000000 !important;
+  background-color: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
