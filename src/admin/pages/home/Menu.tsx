@@ -1,19 +1,19 @@
-import { Link, NavLink } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom";
 
-import styled from "styled-components"
-import dateFormat from "dateformat"
+import styled from "styled-components";
+import dateFormat from "dateformat";
 
-import { Breakpoint } from "../../../constants"
-import { HOME_TILE_MENU } from "./settings"
+import { Breakpoint } from "../../../constants";
+import { HOME_TILE_MENU } from "./settings";
 
-import BG from "../../../assets/images/home-background.png"
+import BG from "../../../assets/images/home-background.png";
 
 export default function Menu(props: any) {
   return (
     <Container>
       <WrapperScrolling>
         <ThisHeader>
-          <WelcomeMessage>Welcome to ManageLife</WelcomeMessage>
+          <WelcomeMessage>Welcome to RegisTree!</WelcomeMessage>
           <DateLabel>
             {dateFormat(new Date(), "mmmm d, yyyy")}
             <br />
@@ -78,7 +78,7 @@ export default function Menu(props: any) {
                       })}
                       onClick={() => {
                         if (props.url) {
-                          props.url(item.url)
+                          props.url(item.url);
                         }
                       }}
                     >
@@ -114,15 +114,15 @@ export default function Menu(props: any) {
                   )}
                 </Box>
               ))
-            )
+            );
           })}
         </BoxWrap>
       </WrapperScrolling>
     </Container>
-  )
+  );
 }
 
-const w = "calc(4 * 242px)"
+const w = "calc(4 * 242px)";
 const Container = styled.div`
   position: relative;
   width: 100%;
@@ -138,14 +138,14 @@ const Container = styled.div`
     background-size: cover;
   }
   overflow: auto;
-`
+`;
 const WrapperScrolling = styled.div`
   position: absolute;
   width: 100%;
   height: auto;
   display: flex;
   flex-direction: column;
-`
+`;
 const ThisHeader = styled.div`
   width: ${(props) => w};
   display: flex;
@@ -155,7 +155,7 @@ const ThisHeader = styled.div`
   @media (max-width: ${(props) => Breakpoint.lg}) {
     width: 100%;
   }
-`
+`;
 const WelcomeMessage = styled.span`
   color: white;
   font-size: 18pt;
@@ -164,7 +164,7 @@ const WelcomeMessage = styled.span`
   @media (max-width: ${(props) => Breakpoint.lg}) {
     text-align: center;
   }
-`
+`;
 const DateLabel = styled.span`
   color: #fff;
   font-weight: 200;
@@ -172,7 +172,7 @@ const DateLabel = styled.span`
   @media (max-width: ${(props) => Breakpoint.lg}) {
     text-align: center;
   }
-`
+`;
 const BoxWrap = styled.div`
   width: ${(props) => w};
   display: flex;
@@ -183,7 +183,7 @@ const BoxWrap = styled.div`
     width: 100%;
     height: 80vh;
   }
-`
+`;
 const Box = styled.div`
   position: relative;
   background: white;
@@ -193,7 +193,7 @@ const Box = styled.div`
   text-align: center;
   vertical-align: top;
   width: 216px;
-`
+`;
 const BoxTop = styled("div")<{ src?: string; text?: string }>`
   width: 100%;
   height: 80%;
@@ -201,7 +201,7 @@ const BoxTop = styled("div")<{ src?: string; text?: string }>`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-`
+`;
 const Desc = styled("span")<{ marginTop?: string }>`
   color: black;
   font-family: Poppins-Medium;
@@ -209,7 +209,7 @@ const Desc = styled("span")<{ marginTop?: string }>`
   font-weight: 700;
   letter-spacing: 0.01rem;
   margin-top: ${(props) => props.marginTop};
-`
+`;
 const BoxBottom = styled.div`
   width: 100%;
   height: 20%;
@@ -220,12 +220,12 @@ const BoxBottom = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`
+`;
 const Icon = styled.i`
   font-size: 5rem;
   vertical-align: middle;
   color: #2c72a7;
-`
+`;
 const TargetBlank = styled.div`
   width: 100%;
   height: 80%;
@@ -235,4 +235,4 @@ const TargetBlank = styled.div`
   justify-content: center;
   text-decoration: none;
   cursor: pointer;
-`
+`;

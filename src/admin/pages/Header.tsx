@@ -1,40 +1,40 @@
-import styled from "styled-components"
-import { useWeb3React } from "@web3-react/core"
-import { Dropdown, DropdownButton } from "react-bootstrap"
-import { useMoralis } from "react-moralis"
-import { useSelector, useDispatch } from "react-redux"
+import styled from "styled-components";
+import { useWeb3React } from "@web3-react/core";
+import { Dropdown, DropdownButton } from "react-bootstrap";
+import { useMoralis } from "react-moralis";
+import { useSelector, useDispatch } from "react-redux";
 
-import { truncate } from "../../utils/helpers"
+import { truncate } from "../../utils/helpers";
 import {
   setProvider,
   setWeb3Modal,
   setChainId,
   setAccount,
-} from "../../redux/web3Reducer"
+} from "../../redux/web3Reducer";
 
-import { Breakpoint } from "../../constants"
-import { setRole } from "../../redux/utilReducer"
+import { Breakpoint } from "../../constants";
+import { setRole } from "../../redux/utilReducer";
 
-const notificationCount = 30
+const notificationCount = 30;
 
 export default function Header() {
-  const { logout, user } = useMoralis()
+  const { logout, user } = useMoralis();
   // @ts-ignore
-  const { web3State } = useSelector((state) => state)
-  const dispatch = useDispatch()
-  const { deactivate } = useWeb3React()
+  const { web3State } = useSelector((state) => state);
+  const dispatch = useDispatch();
+  const { deactivate } = useWeb3React();
 
   async function handleLogoutClick() {
     // await logout();
 
-    window.localStorage.clear()
-    await deactivate()
+    window.localStorage.clear();
+    await deactivate();
 
-    dispatch(setProvider(null))
-    dispatch(setWeb3Modal(null))
-    dispatch(setChainId(0))
-    dispatch(setAccount(""))
-    dispatch(setRole(null))
+    dispatch(setProvider(null));
+    dispatch(setWeb3Modal(null));
+    dispatch(setChainId(0));
+    dispatch(setAccount(""));
+    dispatch(setRole(null));
   }
 
   return (
@@ -56,13 +56,11 @@ export default function Header() {
                     {[...new Array(notificationCount)].map((item, i) => {
                       return (
                         <MockNotificationItem key={i}>{i}</MockNotificationItem>
-                      )
+                      );
                     })}
                   </div>
                 ) : (
-                  <NoNotificationItem>
-                    No notification for now
-                  </NoNotificationItem>
+                  <NoNotificationItem>RegisTree</NoNotificationItem>
                 )}
               </Dropdown.Menu>
             </Dropdown>
@@ -77,7 +75,7 @@ export default function Header() {
         </DropdownButton>
       </HeaderRow>
     </Container>
-  )
+  );
 }
 
 const DDItem = styled.div`
@@ -92,7 +90,7 @@ const DDItem = styled.div`
   &:hover {
     background-color: rgba(242, 242, 242, 0.5);
   }
-`
+`;
 
 const Container = styled.div`
   position: absolute;
@@ -103,18 +101,18 @@ const Container = styled.div`
   @media (max-width: ${() => Breakpoint.md}) {
     display: none;
   }
-`
+`;
 const HeaderRow = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-`
+`;
 const NotificationBadgeWrap = styled.div`
   position: relative;
   display: flex;
   margin-right: 1rem;
   cursor: pointer;
-`
+`;
 const NotificationBadge = styled.div`
   background: red;
   border: 2px solid white;
@@ -129,7 +127,7 @@ const NotificationBadge = styled.div`
   position: absolute;
   top: 10%;
   right: 34%;
-`
+`;
 const MockNotificationItem = styled.div`
   width: 22rem;
   height: 13rem;
@@ -143,7 +141,7 @@ const MockNotificationItem = styled.div`
   &:hover {
     background-color: rgba(242, 242, 242, 0.5); //#f2f2f2;
   }
-`
+`;
 const NoNotificationItem = styled.div`
   width: 10rem;
   height: 2rem;
@@ -157,4 +155,4 @@ const NoNotificationItem = styled.div`
   &:hover {
     background-color: rgba(242, 242, 242, 0.5); //#f2f2f2;
   }
-`
+`;

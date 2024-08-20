@@ -1,21 +1,21 @@
-import dateFormat from "dateformat"
-import styled from "styled-components"
+import dateFormat from "dateformat";
+import styled from "styled-components";
 
-import { truncate } from "../../../utils/helpers"
+import { truncate } from "../../../utils/helpers";
 import {
   Accordion,
   AccordionBody,
   AccordionHeader,
   AccordionItem,
-} from "../../../components/global/Accordion"
-import { IGetMarketItemResponse } from "../../../interfaces/marketplace/GetMarketItemResponse"
+} from "../../../components/global/Accordion";
+import { IGetMarketItemResponse } from "../../../interfaces/marketplace/GetMarketItemResponse";
 
 export default function DescriptionAccordion({
   item,
   contractAddress,
 }: {
-  item: IGetMarketItemResponse | any
-  contractAddress: string | undefined
+  item: IGetMarketItemResponse | any;
+  contractAddress: string | undefined;
 }) {
   return (
     <Accordion noGap key="accordion-0">
@@ -29,7 +29,7 @@ export default function DescriptionAccordion({
       </AccordionItem>
       <AccordionItem eventKey={1}>
         <AccordionHeader eventKey={1} expand>
-          Description of {item?.name}
+          Description of Mindoro Farm
         </AccordionHeader>
         <AccordionBody eventKey={1}>
           <Col w={100}>
@@ -43,7 +43,7 @@ export default function DescriptionAccordion({
                       ? `$${Number(m.value).toLocaleString()}`
                       : m.value && m?.trait_type === "price_per_sqft"
                         ? `$${Number(m.value).toLocaleString()}`
-                        : m.value
+                        : m.value;
 
                 return (
                   <AttributeJustified key={`attr-${i}`}>
@@ -60,7 +60,7 @@ export default function DescriptionAccordion({
                       </Text>
                     </AttributeCell>
                   </AttributeJustified>
-                )
+                );
               })
             ) : (
               <div>Not Available</div>
@@ -101,23 +101,23 @@ export default function DescriptionAccordion({
         </AccordionBody>
       </AccordionItem>
     </Accordion>
-  )
+  );
 }
 
-const Col = styled("div") <{ w?: number }>`
+const Col = styled("div")<{ w?: number }>`
   display: flex;
   flex-direction: column;
   width: ${(props) => (props.w ? `${props.w}%` : "auto")};
-`
+`;
 const AttributeJustified = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-`
-const AttributeCell = styled("div") <{
-  pos?: string
-  paddingLeft?: number
-  paddingRight?: number
+`;
+const AttributeCell = styled("div")<{
+  pos?: string;
+  paddingLeft?: number;
+  paddingRight?: number;
 }>`
   width: 100%;
   display: flex;
@@ -130,33 +130,33 @@ const AttributeCell = styled("div") <{
   padding-left: ${(props) => props.paddingLeft}rem;
   padding-right: ${(props) => props.paddingRight}rem;
   margin-bottom: 0.5rem;
-`
-const Text = styled("span") <{
-  font?: string
-  bold?: boolean
-  color?: string
-  size?: number
+`;
+const Text = styled("span")<{
+  font?: string;
+  bold?: boolean;
+  color?: string;
+  size?: number;
 }>`
   font-family: ${(props) =>
     props.font || (props.bold ? "Poppins-Medium" : "Poppins-Light")};
   color: ${(props) => props.color};
   font-size: ${(props) => props.size}rem;
-`
-const Row = styled("div") <{ marginTop?: number; marginBottom?: number }>`
+`;
+const Row = styled("div")<{ marginTop?: number; marginBottom?: number }>`
   margin-top: ${(props) => props.marginTop}rem;
   margin-bottom: ${(props) => props.marginBottom}rem;
   display: flex;
   flex-direction: row;
-`
+`;
 const DetailsWrap = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-`
-const CellJustified = styled("div") <{ gap?: number }>`
+`;
+const CellJustified = styled("div")<{ gap?: number }>`
     width: 100%;
     display: flex;
     justify-content space-between;    
     margin: 0.2rem 0;
     ${(props) => (props.gap ? `gap:${props.gap}rem` : "")};
-`
+`;

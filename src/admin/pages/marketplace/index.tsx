@@ -105,7 +105,7 @@ export default function Marketplace() {
                 } else {
                   return n;
                 }
-              })
+              }),
             );
 
             setList(items);
@@ -146,7 +146,7 @@ export default function Marketplace() {
         <SearchSection ref={refSearchWrap}>
           <SearchInputWrap>
             <SearchInputImage src={SearchIcon} />
-            <SearchInput placeholder="Search by name or attribute" />
+            <SearchInput placeholder="Search by name or attributes" />
           </SearchInputWrap>
         </SearchSection>
         <NftGridWrap ref={refNftGridWrap}>
@@ -276,7 +276,8 @@ const NftBox = styled("div")<{ w?: number; h?: number }>`
   position: relative;
   background: #fff;
   border-radius: 0.8rem;
-  box-shadow: 0px 20px 25px rgba(0, 0, 0, 0.04),
+  box-shadow:
+    0px 20px 25px rgba(0, 0, 0, 0.04),
     0px 10px 10px rgba(0, 0, 0, 0.04);
   width: ${(props) => props.w}rem;
   height: ${(props) => props.h}rem;

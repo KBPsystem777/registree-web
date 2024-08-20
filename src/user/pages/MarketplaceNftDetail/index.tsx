@@ -2,47 +2,47 @@
  * @todo: Refactor this file to a more modular piece.
  */
 
-import { useEffect, useRef, useState } from "react"
-import { useWeb3React } from "@web3-react/core"
-import { ethers } from "ethers"
-import { useDispatch, useSelector } from "react-redux"
-import { useParams, NavLink } from "react-router-dom"
+import { useEffect, useRef, useState } from "react";
+import { useWeb3React } from "@web3-react/core";
+import { ethers } from "ethers";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams, NavLink } from "react-router-dom";
 
-import dateFormat from "dateformat"
-import styled from "styled-components"
-import "chart.js/auto"
+import dateFormat from "dateformat";
+import styled from "styled-components";
+import "chart.js/auto";
 
-import { dateDiff, truncateText, errorCatcher } from "../../../utils/helpers"
+import { dateDiff, truncateText, errorCatcher } from "../../../utils/helpers";
 import {
   acceptBid,
   cancelForSale,
-} from "../../../blockchain/actions/MLMarketplaceAction"
-import { markFullyPayed } from "../../../blockchain/actions/MLNftAction"
-import { buy } from "../../../blockchain/actions/MLInvestorsMarketplace"
+} from "../../../blockchain/actions/MLMarketplaceAction";
+import { markFullyPayed } from "../../../blockchain/actions/MLNftAction";
+import { buy } from "../../../blockchain/actions/MLInvestorsMarketplace";
 
 import {
   getNftOffers,
   getNftTransactionsById,
   logNftTransaction,
   saveNftFavorited,
-} from "../../../api/Nft"
-import { fetchETHPrice } from "../../../api/Prices"
-import { getNftInfoById } from "../../../api/Nft"
-import { getMarketPlaceItemById } from "../../../api/Marketplace"
+} from "../../../api/Nft";
+import { fetchETHPrice } from "../../../api/Prices";
+import { getNftInfoById } from "../../../api/Nft";
+import { getMarketPlaceItemById } from "../../../api/Marketplace";
 import {
   Accordion,
   AccordionBody,
   AccordionHeader,
   AccordionItem,
-} from "../../../components/global/Accordion"
-import { setRemoveHeaderBorder } from "../../../redux/utilReducer"
-import { useModalContext } from "../../../hooks/ModalContext"
-import { formatToUsd } from "../../../utils/currencyFormatter.helper"
+} from "../../../components/global/Accordion";
+import { setRemoveHeaderBorder } from "../../../redux/utilReducer";
+import { useModalContext } from "../../../hooks/ModalContext";
+import { formatToUsd } from "../../../utils/currencyFormatter.helper";
 import {
   IGetMarketItemResponse,
   NftAttribute,
-} from "../../../interfaces/marketplace/GetMarketItemResponse"
-import { IPropertyDetailedInformation } from "../../../interfaces/property/PropertyInfo"
+} from "../../../interfaces/marketplace/GetMarketItemResponse";
+import { IPropertyDetailedInformation } from "../../../interfaces/property/PropertyInfo";
 
 import {
   Container,
@@ -96,25 +96,25 @@ import {
   IHContentScrolling,
   IHContentSection,
   IHItemRow,
-} from "./Styles/index.style"
+} from "./Styles/index.style";
 
-import EtheIcon from "../../../assets/images/ethereum-icon.svg"
-import EtheRedIcon from "../../../assets/images/ethereum-icon-red.svg"
-import ViewIcon from "../../../assets/images/view.svg"
-import FavoriteIcon from "../../../assets/images/favorite.svg"
-import DescriptionAccordion from "./DescriptionAccordion"
+import EtheIcon from "../../../assets/images/ethereum-icon.svg";
+import EtheRedIcon from "../../../assets/images/ethereum-icon-red.svg";
+import ViewIcon from "../../../assets/images/view.svg";
+import FavoriteIcon from "../../../assets/images/favorite.svg";
+import DescriptionAccordion from "./DescriptionAccordion";
 
-import ModalImage from "./ModalImage"
-import MoreButtons from "./MoreButtons"
-import ModalSaveSearch from "./ModalSaveSearch"
-import ModalShare from "./ModalShare"
-import WarningMessage from "./WarningMessage"
-import MakeBid from "../MakeBid"
-import Transfer from "../Transfer"
-import Burn from "../Burn"
-import ListToMarket from "../ListToMarket"
-import Offer from "../Offer"
-import BuyProperty from "../BuyProperty"
+import ModalImage from "./ModalImage";
+import MoreButtons from "./MoreButtons";
+import ModalSaveSearch from "./ModalSaveSearch";
+import ModalShare from "./ModalShare";
+import WarningMessage from "./WarningMessage";
+import MakeBid from "../MakeBid";
+import Transfer from "../Transfer";
+import Burn from "../Burn";
+import ListToMarket from "../ListToMarket";
+import Offer from "../Offer";
+import BuyProperty from "../BuyProperty";
 
 const UserData = [
   {
@@ -147,54 +147,54 @@ const UserData = [
     userGain: 4300,
     userLost: 234,
   },
-]
+];
 
 /***
  * This is the component being render on this page path:
  * http://localhost:3000/marketplace/{contractAddress}/{tokenId}
  */
 export default function MarketplaceNftDetail() {
-  const { contractAddress, tokenId } = useParams()
-  const refContainer = useRef<HTMLDivElement>(null)
-  const refContentBody = useRef<HTMLDivElement>(null)
-  const [loading, setLoading] = useState(true)
+  const { contractAddress, tokenId } = useParams();
+  const refContainer = useRef<HTMLDivElement>(null);
+  const refContentBody = useRef<HTMLDivElement>(null);
+  const [loading, setLoading] = useState(true);
   const [item, setItem] = useState<
     IGetMarketItemResponse | IPropertyDetailedInformation
-  >()
-  const [flexible, setFlexible] = useState(false)
-  const [histories, setHistories] = useState<any[]>([])
-  const [reload, setReload] = useState(0)
+  >();
+  const [flexible, setFlexible] = useState(false);
+  const [histories, setHistories] = useState<any[]>([]);
+  const [reload, setReload] = useState(0);
   const [nftAttributes, setNftAttributes] = useState<
     NftAttribute[] | undefined
-  >()
+  >();
   const [priceHistory, setPriceHistory] = useState<any>({
     labels: [],
     datasets: [],
-  })
-  const [favorites, setFavorites] = useState(0)
+  });
+  const [favorites, setFavorites] = useState(0);
 
-  const [ethInUsd, setEthInUsd] = useState(0)
+  const [ethInUsd, setEthInUsd] = useState(0);
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   useEffect(() => {
     fetchETHPrice()
       .then((price) => {
-        setEthInUsd(price?.data?.USD)
+        setEthInUsd(price?.data?.USD);
       })
       .catch((error) => {
-        console.error("Error in getting ETH price:", error)
-      })
-  }, [])
+        console.error("Error in getting ETH price:", error);
+      });
+  }, []);
 
   // LOL. TODO: Identify the correct types
   interface ModalContext {
-    setOpen: any
-    setModalChildren: any
-    setFormScreen: any
-    setLoadingMessage: any
-    setErrorMessage: any
-    setSuccessMessage: any
+    setOpen: any;
+    setModalChildren: any;
+    setFormScreen: any;
+    setLoadingMessage: any;
+    setErrorMessage: any;
+    setSuccessMessage: any;
   }
 
   // @ts-ignore
@@ -205,13 +205,13 @@ export default function MarketplaceNftDetail() {
     setLoadingMessage,
     setErrorMessage,
     setSuccessMessage,
-  }: ModalContext = useModalContext()
+  }: ModalContext = useModalContext();
 
   // @ts-ignore
-  const { utilState } = useSelector((state) => state)
-  const { account } = useWeb3React()
-  const role = localStorage.getItem("role")
-  const mlContact = "(210) 806-7558"
+  const { utilState } = useSelector((state) => state);
+  const { account } = useWeb3React();
+  const role = localStorage.getItem("role");
+  const mlContact = "(210) 806-7558";
 
   function handleShowFull() {
     setModalChildren(
@@ -220,16 +220,16 @@ export default function MarketplaceNftDetail() {
         handleSetFavorite={setFavorites}
         isOpen={true}
         closeModal={() => setOpen(false)}
-      />
-    )
-    setOpen(true)
+      />,
+    );
+    setOpen(true);
   }
 
   function handleNftPurchase() {
     if (item) {
       setFormScreen(
-        <BuyProperty nft={item} closeModal={() => setFormScreen(null)} />
-      )
+        <BuyProperty nft={item} closeModal={() => setFormScreen(null)} />,
+      );
     }
   }
 
@@ -238,22 +238,22 @@ export default function MarketplaceNftDetail() {
     window.onscroll = () => {
       if (refContainer.current) {
         if (refContainer.current.getBoundingClientRect().y <= 52) {
-          dispatch(setRemoveHeaderBorder(false))
+          dispatch(setRemoveHeaderBorder(false));
         } else {
-          dispatch(setRemoveHeaderBorder(true))
+          dispatch(setRemoveHeaderBorder(true));
         }
       }
-    }
+    };
   }
 
   async function handleCancelListingClick() {
     try {
       if (account) {
-        setLoadingMessage("Cancelling for sale... transaction in process...")
-        const tx = await cancelForSale(item?.propertyId, account)
+        setLoadingMessage("Cancelling for sale... transaction in process...");
+        const tx = await cancelForSale(item?.propertyId, account);
         if (tx) {
           if (tx) {
-            console.log(tx)
+            console.log(tx);
             const res = await logNftTransaction(
               item?.propertyId,
               "sale",
@@ -266,27 +266,27 @@ export default function MarketplaceNftDetail() {
               tx.events,
               tx.logs,
               "",
-              "nft"
-            )
-            console.log(res)
-            setSuccessMessage("Cancelled for sale!")
+              "nft",
+            );
+            console.log(res);
+            setSuccessMessage("Cancelled for sale!");
           } else {
-            setErrorMessage("Cancelling for sale failed.")
+            setErrorMessage("Cancelling for sale failed.");
           }
         }
       }
     } catch (e) {
-      setErrorMessage(errorCatcher(e))
+      setErrorMessage(errorCatcher(e));
     }
   }
 
   async function handleMarkFullyPaidClick() {
     try {
       if (account) {
-        setLoadingMessage("Marking as fully paid... transaction in process...")
-        const tx = await markFullyPayed(item?.propertyId, account)
+        setLoadingMessage("Marking as fully paid... transaction in process...");
+        const tx = await markFullyPayed(item?.propertyId, account);
         if (tx) {
-          console.log(tx)
+          console.log(tx);
           const res = await logNftTransaction(
             item?.propertyId,
             "mark",
@@ -299,71 +299,73 @@ export default function MarketplaceNftDetail() {
             tx.events,
             tx.logs,
             "",
-            "nft"
-          )
-          console.log(res)
-          setSuccessMessage("Marked as fully paid!")
+            "nft",
+          );
+          console.log(res);
+          setSuccessMessage("Marked as fully paid!");
         } else {
-          setErrorMessage("Marking as fully paid failed.")
+          setErrorMessage("Marking as fully paid failed.");
         }
       }
     } catch (e) {
-      setErrorMessage(errorCatcher(e))
+      setErrorMessage(errorCatcher(e));
     }
   }
 
   async function handleTransferClick() {
     if (item?.propertyId) {
       setFormScreen(
-        <Transfer nft={item} closeModal={() => setFormScreen(null)} />
-      )
+        <Transfer nft={item} closeModal={() => setFormScreen(null)} />,
+      );
     }
   }
 
   async function handleBurnClick() {
     if (item?.propertyId) {
-      setFormScreen(<Burn nft={item} closeModal={() => setFormScreen(null)} />)
+      setFormScreen(<Burn nft={item} closeModal={() => setFormScreen(null)} />);
     }
   }
 
   function handleListToMarketClick() {
     if (item?.propertyId) {
       setFormScreen(
-        <ListToMarket nft={item} closeModal={() => setFormScreen(null)} />
-      )
+        <ListToMarket nft={item} closeModal={() => setFormScreen(null)} />,
+      );
     }
   }
 
   async function handleOfferClick() {
     if (item?.propertyId) {
-      setFormScreen(<Offer nft={item} closeModal={() => setFormScreen(null)} />)
+      setFormScreen(
+        <Offer nft={item} closeModal={() => setFormScreen(null)} />,
+      );
     }
   }
 
   async function handleBidClick() {
     if (item) {
       setFormScreen(
-        <MakeBid nft={item} closeModal={() => setFormScreen(null)} />
-      )
+        <MakeBid nft={item} closeModal={() => setFormScreen(null)} />,
+      );
     }
   }
 
   async function handleReloadData() {
-    setReload((prev) => (prev === 1 ? 0 : 1))
+    setReload((prev) => (prev === 1 ? 0 : 1));
   }
 
   function handleOpenShareModel() {
     setModalChildren(
-      <ModalShare isOpen={true} closeModal={() => setOpen(false)} />
-    )
-    setOpen(true)
+      <ModalShare isOpen={true} closeModal={() => setOpen(false)} />,
+    );
+    setOpen(true);
   }
 
   function handleOpenSearchModal() {
     setModalChildren(
-      <ModalSaveSearch isOpen={true} closeModal={() => setOpen(false)} />
-    )
-    setOpen(true)
+      <ModalSaveSearch isOpen={true} closeModal={() => setOpen(false)} />,
+    );
+    setOpen(true);
   }
 
   async function handleFavoriteClick() {
@@ -372,19 +374,19 @@ export default function MarketplaceNftDetail() {
         const respond = await saveNftFavorited({
           walletAddress: account,
           id: item?.propertyId,
-        })
-        setFavorites(respond?.data?.data?.favorites || 0)
+        });
+        setFavorites(respond?.data?.data?.favorites || 0);
       } else {
         setModalChildren(
           <WarningMessage
             message="You must be a ML member to add favorite."
             isOpen={true}
             closeModal={() => setOpen(false)}
-          />
-        )
-        setOpen(true)
+          />,
+        );
+        setOpen(true);
       }
-    } catch (e) { }
+    } catch (e) {}
   }
 
   async function fetchData() {
@@ -392,48 +394,49 @@ export default function MarketplaceNftDetail() {
       if (account) {
         if (localStorage.getItem("role")) {
           if (localStorage.getItem("role") === "admin") {
-            const raw = await getNftInfoById(tokenId, account)
-            setFavorites(raw?.data?.data?.favorites)
-            setItem(raw?.data?.data)
-            setNftAttributes(raw?.data?.data?.attributes)
+            const raw = await getNftInfoById(tokenId, account);
+            setFavorites(raw?.data?.data?.favorites);
+            setItem(raw?.data?.data);
+            setNftAttributes(raw?.data?.data?.attributes);
           } else if (localStorage.getItem("role") === "home_owner") {
-            const raw = await getNftInfoById(tokenId, account)
+            const raw = await getNftInfoById(tokenId, account);
             if (raw?.data?.data) {
-              setFavorites(raw?.data?.data?.favorites)
-              setItem(raw.data.data)
-              setNftAttributes(raw?.data?.data?.attributes)
+              setFavorites(raw?.data?.data?.favorites);
+              setItem(raw.data.data);
+              setNftAttributes(raw?.data?.data?.attributes);
             }
           }
         } else {
-          const raw = await getNftInfoById(tokenId, account)
+          const raw = await getNftInfoById(tokenId, account);
           if (raw?.data?.data) {
-            setFavorites(raw?.data?.data?.favorites)
-            setItem(raw.data.data)
-            setNftAttributes(raw?.data?.data?.attributes)
+            setFavorites(raw?.data?.data?.favorites);
+            setItem(raw.data.data);
+            setNftAttributes(raw?.data?.data?.attributes);
           }
         }
       } else {
-        const raw = await getMarketPlaceItemById(tokenId)
+        const raw = await getMarketPlaceItemById(tokenId);
         if (raw?.data) {
-          raw.data.tokenId = tokenId
+          raw.data.tokenId = tokenId;
         }
-        setItem(raw?.data)
-        setNftAttributes(raw?.data?.data?.attributes)
+        setItem(raw?.data);
+        setNftAttributes(raw?.data?.data?.attributes);
       }
     } catch (e) {
-      console.log(e)
-      setLoading(false)
+      console.log(e);
+      setLoading(false);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
   }
 
   useEffect(() => {
-    ; (async () => {
-      await fetchData()
-    })()
+    (async () => {
+      await fetchData();
+      console.log(item);
+    })();
 
-    initEvents()
+    initEvents();
 
     setPriceHistory({
       labels: UserData.map((o) => o.year),
@@ -449,7 +452,7 @@ export default function MarketplaceNftDetail() {
           type: "line",
         },
       ],
-    })
+    });
 
     const data = {
       labels: UserData.map((o) => o.year),
@@ -464,27 +467,27 @@ export default function MarketplaceNftDetail() {
           type: "line",
         },
       ],
-    }
-  }, [account])
+    };
+  }, [account]);
 
-  const itemSalePrice = item?.minSalePrice ?? 0
-  const usdCost = formatToUsd(itemSalePrice * ethInUsd)
+  const itemSalePrice = item?.minSalePrice ?? 0;
+  const usdCost = formatToUsd(itemSalePrice * ethInUsd);
 
   const monthlyPaymentAttribute = nftAttributes?.filter(
-    (item: NftAttribute) => item?.trait_type === "estimated_monthly_payment"
-  )
+    (item: NftAttribute) => item?.trait_type === "estimated_monthly_payment",
+  );
 
-  const saleAmount = item?.minSalePrice
-  const propertyId = item?.propertyId
+  const saleAmount = item?.minSalePrice;
+  const propertyId = item?.propertyId;
 
   // @note @todo Refactor this
   async function handleNftiSaleClick() {
     try {
       if (account) {
-        setLoading(true)
-        const tx = await buy(saleAmount, propertyId) // item?.minSalePrice, item?.propertyId)
+        setLoading(true);
+        const tx = await buy(saleAmount, propertyId); // item?.minSalePrice, item?.propertyId)
         if (tx) {
-          console.log(tx)
+          console.log(tx);
           const res = await logNftTransaction(
             propertyId,
             "sale",
@@ -497,23 +500,23 @@ export default function MarketplaceNftDetail() {
             tx.events,
             tx.logs,
             "",
-            "nfti"
-          )
-          console.log(res)
-          setSuccessMessage("NFT has been purchased successfully.")
+            "nfti",
+          );
+          console.log(res);
+          setSuccessMessage("NFT has been purchased successfully.");
         } else {
-          setErrorMessage("Transaction failed")
+          setErrorMessage("Transaction failed");
         }
 
-        setLoading(false)
+        setLoading(false);
       }
     } catch (e) {
-      setErrorMessage(errorCatcher(e))
-      setLoading(false)
+      setErrorMessage(errorCatcher(e));
+      setLoading(false);
     }
   }
 
-  const monthlyPaymentValue = monthlyPaymentAttribute?.[0]?.value ?? 0
+  const monthlyPaymentValue = monthlyPaymentAttribute?.[0]?.value ?? 0;
   return (
     <Container isAdmin={utilState.isAdmin} ref={refContainer}>
       {loading && (
@@ -532,7 +535,7 @@ export default function MarketplaceNftDetail() {
                   <CellJustified>
                     <Row>
                       <Text size={1.9} font="Poppins-SemiBold">
-                        {item?.name} ({item?.propertyId || tokenId})
+                        Mindoro Farm #7
                       </Text>
                     </Row>
                     <MoreButtons
@@ -543,24 +546,22 @@ export default function MarketplaceNftDetail() {
                   </CellJustified>
                   <Row>
                     <OwnedByRow>
-                      {account && (
-                        <>
-                          <Text size={0.9} font="Poppins-Light" color="gray">
-                            Owned by&nbsp;
-                          </Text>
-                          <NavLink
-                            // to={`/ownedby/0xx`}
-                            to="/marketplace/account"
-                            style={({ isActive }) => ({
-                              textDecoration: "none",
-                              color: "#2C72A7",
-                              fontSize: "0.9rem",
-                            })}
-                          >
-                            {item?.ownerName}
-                          </NavLink>
-                        </>
-                      )}
+                      <>
+                        <Text size={0.9} font="Poppins-Light" color="gray">
+                          Owned by&nbsp;
+                        </Text>
+                        <NavLink
+                          // to={`/ownedby/0xx`}
+                          to="/marketplace/account"
+                          style={({ isActive }) => ({
+                            textDecoration: "none",
+                            color: "#2C72A7",
+                            fontSize: "0.9rem",
+                          })}
+                        >
+                          {item?.ownerName}
+                        </NavLink>
+                      </>
                     </OwnedByRow>
                   </Row>
                   <Row marginTop={1} marginBottom={2}>
@@ -604,10 +605,7 @@ export default function MarketplaceNftDetail() {
                       />
                     </ImageHeader>
                     <Image
-                      src={
-                        item?.image ||
-                        "https://res.cloudinary.com/dbjlcflj0/image/upload/v1667559320/manage-life/default-NFT-image_jzvv6h.png"
-                      }
+                      src={"https://glenhill.co.nz/images/bfi_1.jpg"}
                       hasImage={true}
                       onClick={handleShowFull}
                     />
@@ -623,7 +621,7 @@ export default function MarketplaceNftDetail() {
                     <CellJustified>
                       <Row>
                         <Text size={1.9} font="Poppins-SemiBold">
-                          {item?.name} ({item?.propertyId || tokenId})
+                          Mindoro Farm #7
                         </Text>
                       </Row>
                       <MoreButtons
@@ -686,7 +684,7 @@ export default function MarketplaceNftDetail() {
                     <Accordion noGap key="accordion-saleends">
                       <AccordionItem eventKey={5}>
                         <AccordionHeader eventKey={5} keepExpand>
-                          Sale Ends: December 25, 2024
+                          Pledge Ends: December 25, 2024
                         </AccordionHeader>
                         <AccordionBody eventKey={5}>
                           <SaleEndsDetail>
@@ -694,15 +692,11 @@ export default function MarketplaceNftDetail() {
                               <CurrentPrice>
                                 <CPLabel>Current price</CPLabel>
                                 <CPValueWrapRow>
-                                  <CPValue>
-                                    {`${item?.minSalePrice} ETH = ${usdCost}`}
-                                  </CPValue>
+                                  <CPValue>{`PHP 2,000 = 1 Slot`}</CPValue>
                                 </CPValueWrapRow>
                               </CurrentPrice>
                             </Row>
-                            <Row>{`Estimated Payment: ${formatToUsd(
-                              monthlyPaymentValue
-                            )}/mo`}</Row>
+                            <Row>77/500 Slots left</Row>
                           </SaleEndsDetail>
                         </AccordionBody>
                       </AccordionItem>
@@ -710,17 +704,6 @@ export default function MarketplaceNftDetail() {
                   </div>
 
                   <ButtonsWrap>
-                    <ButtonDoubleSlideWrap>
-                      <BuyButton
-                        color="#ffffff"
-                        bg="#2A72A7"
-                        fontSize={role ? 10 : 12}
-                        borderColor="rgba(0,0,0,0.1)"
-                        onClick={handleNftiSaleClick}
-                      >
-                        Purchase
-                      </BuyButton>
-                    </ButtonDoubleSlideWrap>
                     <Button
                       color="#ffffff"
                       bg="#2A4FA7"
@@ -728,7 +711,7 @@ export default function MarketplaceNftDetail() {
                       borderColor="rgba(0,0,0,0.1)"
                       onClick={handleBidClick}
                     >
-                      Make Offer
+                      Make Pledge
                     </Button>
                   </ButtonsWrap>
 
@@ -775,7 +758,7 @@ export default function MarketplaceNftDetail() {
         </TabContent>
       )}
     </Container>
-  )
+  );
 }
 
 export const FullImage = ({ imagePath, onClose }: any) => {
@@ -784,39 +767,39 @@ export const FullImage = ({ imagePath, onClose }: any) => {
       <FICloseButton onClick={onClose} />
       <img src={imagePath} style={{ height: "90%" }} />
     </FullImageContainer>
-  )
-}
+  );
+};
 
 const ItemBids = ({ tokenId, refresh }: any) => {
-  const [bids, setBids] = useState<any[]>([])
+  const [bids, setBids] = useState<any[]>([]);
   // @ts-ignore
   const { setLoadingMessage, setSuccessMessage, setErrorMessage } =
-    useModalContext()
-  const { account } = useWeb3React()
-  const role = localStorage.getItem("role")
+    useModalContext();
+  const { account } = useWeb3React();
+  const role = localStorage.getItem("role");
 
   useEffect(() => {
-    ; (async () => {
-      await loadData()
-    })()
-  }, [account, refresh])
+    (async () => {
+      await loadData();
+    })();
+  }, [account, refresh]);
 
   async function loadData() {
     try {
-      const rawBids = await getNftOffers(tokenId)
+      const rawBids = await getNftOffers(tokenId);
       if (rawBids?.data?.data) {
-        setBids(rawBids.data.data)
+        setBids(rawBids.data.data);
       }
-    } catch (e) { }
+    } catch (e) {}
   }
 
   async function handleAcceptBidClick(nft: any) {
     if (account) {
       try {
-        console.log(nft, nft.id, nft.bidPrice, account)
-        setLoadingMessage("Accepting bid...transaction in process...")
-        const txBid = await acceptBid(nft.id, nft.bidPrice, account)
-        console.log(txBid)
+        console.log(nft, nft.id, nft.bidPrice, account);
+        setLoadingMessage("Accepting bid...transaction in process...");
+        const txBid = await acceptBid(nft.id, nft.bidPrice, account);
+        console.log(txBid);
         if (txBid) {
           // const res = await acceptBidApi(bid.id, web3State.account, bid.fromWallet, tx.gasUsed, tx.transactionHash);
           // console.log(res)
@@ -833,14 +816,14 @@ const ItemBids = ({ tokenId, refresh }: any) => {
             txBid.events,
             txBid.logs,
             nft.bidId,
-            "nft"
-          )
-          console.log(res)
-          await loadData()
-          setSuccessMessage("Accept bid success.")
+            "nft",
+          );
+          console.log(res);
+          await loadData();
+          setSuccessMessage("Accept bid success.");
         }
       } catch (e) {
-        setErrorMessage(errorCatcher(e))
+        setErrorMessage(errorCatcher(e));
       }
     }
   }
@@ -877,7 +860,7 @@ const ItemBids = ({ tokenId, refresh }: any) => {
                     <Text size={0.8}>
                       {dateDiff(
                         new Date(),
-                        new Date(dateFormat(item?.updatedAt, "yyyy-mm-dd"))
+                        new Date(dateFormat(item?.updatedAt, "yyyy-mm-dd")),
                       )}{" "}
                       days ago
                     </Text>
@@ -896,43 +879,43 @@ const ItemBids = ({ tokenId, refresh }: any) => {
                   )}
                 </IOItemRow>
               </IHItemCol>
-            )
+            );
           })}
         </IOContentScrolling>
       </IOContentSection>
     </Col>
-  )
-}
+  );
+};
 
 const ItemHistory = ({ tokenId }: any) => {
-  const [items, setItems] = useState<any[]>([])
-  const { account } = useWeb3React()
+  const [items, setItems] = useState<any[]>([]);
+  const { account } = useWeb3React();
 
   const min = Math.min.apply(
     Math,
     items.map((o: any) => {
-      return o.minSalePrice
-    })
-  )
+      return o.minSalePrice;
+    }),
+  );
   const max = Math.max.apply(
     Math,
     items.map((o: any) => {
-      return o.minSalePrice
-    })
-  )
+      return o.minSalePrice;
+    }),
+  );
 
   useEffect(() => {
-    ; (async () => {
+    (async () => {
       try {
-        const raw = await getNftTransactionsById(account, tokenId)
+        const raw = await getNftTransactionsById(account, tokenId);
         if (raw?.data?.data) {
-          setItems(raw.data.data)
+          setItems(raw.data.data);
         }
       } catch (e) {
-        console.log(e)
+        console.log(e);
       }
-    })()
-  }, [])
+    })();
+  }, []);
 
   return (
     <Col w={100}>
@@ -989,17 +972,17 @@ const ItemHistory = ({ tokenId }: any) => {
                     <Text size={0.8}>
                       {dateDiff(
                         new Date(),
-                        new Date(dateFormat(item?.updatedAt, "yyyy-mm-dd"))
+                        new Date(dateFormat(item?.updatedAt, "yyyy-mm-dd")),
                       )}{" "}
                       days ago
                     </Text>
                   </IHItemCell>
                 </IHItemRow>
               </IHItemCol>
-            )
+            );
           })}
         </IHContentScrolling>
       </IHContentSection>
     </Col>
-  )
-}
+  );
+};

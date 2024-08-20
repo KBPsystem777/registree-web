@@ -10,7 +10,7 @@ export const HOME_TILE_MENU = [
   },
   {
     unoDesc: "Manage",
-    dosDesc: "Properties",
+    dosDesc: "Lands",
     image: require("../../../assets/images/properties-icon.png").default,
     linkText: "+ Add Properties",
     url: "/home/properties",
@@ -26,6 +26,7 @@ export const HOME_TILE_MENU = [
     url: "/home/tokens",
     urlAdd: "",
     disabled: true,
+    hidden: true,
   },
   {
     unoDesc: "Manage",
@@ -35,6 +36,7 @@ export const HOME_TILE_MENU = [
     url: "/home/nfts",
     urlAdd: "",
     disabled: true,
+    hidden: true,
   },
   {
     unoDesc: "View",
@@ -81,8 +83,9 @@ export const HOME_TILE_MENU = [
     urlAdd: "",
     className: "fa fa-fw fa-cogs",
     disabled: true,
+    hidden: true,
   },
-]
+];
 
 export const HOME_TABS = [
   {
@@ -117,4 +120,4 @@ export const HOME_TABS = [
     label: "NFTs",
     url: "/home/nfts",
   },
-]
+];

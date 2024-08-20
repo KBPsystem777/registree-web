@@ -1,54 +1,54 @@
-import { useEffect, useRef, useState } from "react"
-import { Breakpoint, BreakpointInPx } from "../../constants"
-import { useNavigate, useLocation } from "react-router-dom"
-import { useSelector, useDispatch } from "react-redux"
-import { useWeb3React } from "@web3-react/core"
+import { useEffect, useRef, useState } from "react";
+import { Breakpoint, BreakpointInPx } from "../../constants";
+import { useNavigate, useLocation } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { useWeb3React } from "@web3-react/core";
 import {
   setProvider,
   setWeb3Modal,
   setChainId,
   setAccount,
-} from "../../redux/web3Reducer"
+} from "../../redux/web3Reducer";
 
-import styled from "styled-components"
+import styled from "styled-components";
 
-import { useModalContext } from "../../hooks/ModalContext"
-import { CLIENT_DIR } from "../../config"
+import { useModalContext } from "../../hooks/ModalContext";
+import { CLIENT_DIR } from "../../config";
 
-import Wallet from "../../components/global/Wallet"
-import TabInventory from "./tabs/TabInventory"
-import TabFavorited from "./tabs/TabFavorited"
-import PublicMarket from "./PublicMarket"
-import TabOffers from "./tabs/TabOffers"
-import TabBids from "./tabs/TabBids"
-import TabRewards from "./tabs/TabRewards"
-import TabRewardsHistory from "./tabs/TabRewardsHistory"
-import TabActivity from "./tabs/TabActivity"
+import Wallet from "../../components/global/Wallet";
+import TabInventory from "./tabs/TabInventory";
+import TabFavorited from "./tabs/TabFavorited";
+import PublicMarket from "./PublicMarket";
+import TabOffers from "./tabs/TabOffers";
+import TabBids from "./tabs/TabBids";
+import TabRewards from "./tabs/TabRewards";
+import TabRewardsHistory from "./tabs/TabRewardsHistory";
+import TabActivity from "./tabs/TabActivity";
 
 function useIsMounted() {
-  const isMounted = useRef(false)
+  const isMounted = useRef(false);
 
   useEffect(() => {
-    isMounted.current = true
+    isMounted.current = true;
 
     return () => {
-      isMounted.current = false
-    }
-  })
+      isMounted.current = false;
+    };
+  });
 
-  return isMounted
+  return isMounted;
 }
 
 function makeid() {
-  let text = ""
+  let text = "";
   const possible =
-    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
   for (let i = 0; i < 5; i++) {
-    text += possible.charAt(Math.floor(Math.random() * possible.length))
+    text += possible.charAt(Math.floor(Math.random() * possible.length));
   }
 
-  return text
+  return text;
 }
 
 export default function Collection() {
@@ -60,27 +60,27 @@ export default function Collection() {
     <TabActivity />,
     <TabRewards />,
     <TabRewardsHistory />,
-  ]
+  ];
 
-  const location: any = useLocation()
-  const [boxWidth, setBoxWidth] = useState(0)
-  const refTabContent = useRef<HTMLDivElement>(null)
-  const isMountedRef = useIsMounted()
-  const [loading, setLoading] = useState(false)
-  const [list, setList] = useState<any[]>([])
-  const [selectedItem, setSelectedItem] = useState<object>()
-  const [activeTab, setActiveTab] = useState(0)
-  const refNftGridWrap = useRef<HTMLDivElement>(null)
-  const navigate = useNavigate()
-  const refSubHeader = useRef<HTMLDivElement>(null)
+  const location: any = useLocation();
+  const [boxWidth, setBoxWidth] = useState(0);
+  const refTabContent = useRef<HTMLDivElement>(null);
+  const isMountedRef = useIsMounted();
+  const [loading, setLoading] = useState(false);
+  const [list, setList] = useState<any[]>([]);
+  const [selectedItem, setSelectedItem] = useState<object>();
+  const [activeTab, setActiveTab] = useState(0);
+  const refNftGridWrap = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
+  const refSubHeader = useRef<HTMLDivElement>(null);
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   // @ts-ignore
-  const { web3State, utilState } = useSelector((state) => state)
-  const { deactivate, account } = useWeb3React()
+  const { web3State, utilState } = useSelector((state) => state);
+  const { deactivate, account } = useWeb3React();
   // @ts-ignore
-  const { setOpen, setModalChildren } = useModalContext()
-  const role = localStorage.getItem("role")
+  const { setOpen, setModalChildren } = useModalContext();
+  const role = localStorage.getItem("role");
 
   async function handleShowInfoClick(item: any, e: any) {
     navigate(`${CLIENT_DIR}/assets/${item.token_id}`, {
@@ -90,106 +90,105 @@ export default function Collection() {
         tokenStandard: item?.contract_type,
         symbol: item?.symbol,
       },
-    })
+    });
   }
 
   function handleLoginClick(e: any) {
-    e.stopPropagation()
+    e.stopPropagation();
     setModalChildren(
       <Wallet
         close={() => {
-          setOpen(false)
+          setOpen(false);
         }}
-      />
-    )
-    setOpen(true)
+      />,
+    );
+    setOpen(true);
   }
 
   function handleBuyNowClick(e: any) {
-    e.stopPropagation()
+    e.stopPropagation();
   }
 
   function responsePage() {
     if (refTabContent.current) {
-      let bw
-      const xl = Number(BreakpointInPx.xl.slice(0, -2))
-      const lg = Number(BreakpointInPx.lg.slice(0, -2))
-      const md = Number(BreakpointInPx.md.slice(0, -2))
-      const md2 = Number(BreakpointInPx.md2.slice(0, -2))
-      const sm = Number(BreakpointInPx.sm.slice(0, -2))
+      let bw;
+      const xl = Number(BreakpointInPx.xl.slice(0, -2));
+      const lg = Number(BreakpointInPx.lg.slice(0, -2));
+      const md = Number(BreakpointInPx.md.slice(0, -2));
+      const md2 = Number(BreakpointInPx.md2.slice(0, -2));
+      const sm = Number(BreakpointInPx.sm.slice(0, -2));
       if (sm > window.innerWidth) {
-        bw = (refTabContent.current.offsetWidth - 400) / 1
+        bw = (refTabContent.current.offsetWidth - 400) / 1;
       } else if (md2 > window.innerWidth) {
-        bw = (refTabContent.current.offsetWidth - 400) / 1
+        bw = (refTabContent.current.offsetWidth - 400) / 1;
       } else if (md > window.innerWidth) {
-        bw = (refTabContent.current.offsetWidth - 400) / 1
+        bw = (refTabContent.current.offsetWidth - 400) / 1;
       } else if (lg > window.innerWidth) {
-        bw = (refTabContent.current.offsetWidth - 400) / 2
+        bw = (refTabContent.current.offsetWidth - 400) / 2;
       } else if (xl > window.innerWidth) {
-        bw = (refTabContent.current.offsetWidth - 400) / 3
+        bw = (refTabContent.current.offsetWidth - 400) / 3;
       } else {
-        bw = (refTabContent.current.offsetWidth - 400) / 4
+        bw = (refTabContent.current.offsetWidth - 400) / 4;
       }
 
-      setBoxWidth(18)
+      setBoxWidth(18);
     }
   }
 
   async function handleLogoutClick() {
-    window.localStorage.clear()
-    await deactivate()
+    window.localStorage.clear();
+    await deactivate();
 
-    dispatch(setProvider(null))
-    dispatch(setWeb3Modal(null))
-    dispatch(setChainId(0))
-    dispatch(setAccount(""))
+    dispatch(setProvider(null));
+    dispatch(setWeb3Modal(null));
+    dispatch(setChainId(0));
+    dispatch(setAccount(""));
   }
 
   function classnames(obj: any) {
     return Object.entries(obj)
       .map(([cls, enb]) => (enb ? cls : ""))
-      .join(" ")
+      .join(" ");
   }
 
   useEffect(() => {
-    ; (async () => {
+    (async () => {
       try {
-        setLoading(true)
+        setLoading(true);
         if (isMountedRef.current) {
         }
-        setLoading(false)
+        setLoading(false);
       } catch (e) {
-        setLoading(false)
+        setLoading(false);
       }
-    })()
-  }, [])
+    })();
+  }, []);
 
   useEffect(() => {
-    responsePage()
+    responsePage();
     window.onresize = () => {
-      responsePage()
-    }
+      responsePage();
+    };
 
     window.onscroll = async (e: any) => {
       if (refSubHeader.current && refTabContent.current) {
         if (window.scrollY >= 400) {
-          refSubHeader.current.classList.add("box")
-          refTabContent.current.classList.add("box")
+          refSubHeader.current.classList.add("box");
+          refTabContent.current.classList.add("box");
         } else {
-          refSubHeader.current.classList.remove("box")
-          refTabContent.current.classList.remove("box")
+          refSubHeader.current.classList.remove("box");
+          refTabContent.current.classList.remove("box");
         }
       }
-    }
-  }, [utilState.headerHeight])
+    };
+  }, [utilState.headerHeight]);
 
   const isAccount =
-    account && location.pathname.includes("/collections/account")
+    account && location.pathname.includes("/collections/account");
 
   return (
     <Container>
       <SubHeader ref={refSubHeader}>
-        <FeaturedImage>{isAccount && <ProfileImage />}</FeaturedImage>
         <HeaderSection
           className={classnames(isAccount ? { "account-dashboad": 1 } : {})}
         >
@@ -244,7 +243,7 @@ export default function Collection() {
         <NftGridWrap ref={refNftGridWrap}></NftGridWrap>
       </TabContent>
     </Container>
-  )
+  );
 }
 
 const Container = styled.div`
@@ -252,7 +251,7 @@ const Container = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-`
+`;
 const TabContent = styled.div`
   position: relative;
   width: 100%;
@@ -263,7 +262,7 @@ const TabContent = styled.div`
   &.box {
     margin-top: 56vh;
   }
-`
+`;
 const NftGridWrap = styled.div`
   position: relative;
   width: 100%;
@@ -271,7 +270,7 @@ const NftGridWrap = styled.div`
   display: flex;
   background: #fff;
   padding: 0 4%;
-`
+`;
 const SubHeader = styled.div`
   position: relative;
   width: 100%;
@@ -282,10 +281,11 @@ const SubHeader = styled.div`
   &.box {
     position: fixed;
     top: -43vh;
-    box-shadow: 0px 20px 25px rgba(0, 0, 0, 0.04),
+    box-shadow:
+      0px 20px 25px rgba(0, 0, 0, 0.04),
       0px 10px 10px rgba(0, 0, 0, 0.04);
   }
-`
+`;
 const FeaturedImage = styled.div`
   position: relative;
   width: 100%;
@@ -302,7 +302,7 @@ const FeaturedImage = styled.div`
   @media (max-width: ${(props) => Breakpoint.md}) {
     height: 20vw;
   }
-`
+`;
 const ProfileImage = styled.div`
   position: absolute;
   width: 20vh;
@@ -312,7 +312,8 @@ const ProfileImage = styled.div`
   background-color: #2c72a7;
   bottom: -26%;
   left: 4%;
-  box-shadow: 0px 20px 25px rgba(0, 0, 0, 0.04),
+  box-shadow:
+    0px 20px 25px rgba(0, 0, 0, 0.04),
     0px 10px 10px rgba(0, 0, 0, 0.04);
   background-image: url(${(props) =>
     require("../../assets/images/MLLogoWhite.png").default});
@@ -331,39 +332,39 @@ const ProfileImage = styled.div`
     border: 0.8vw solid #ffffff;
     bottom: -26%;
   }
-`
+`;
 const HeaderSection = styled.div`
   padding: 2% 4% 0% 4%;
   width: 100%;
-`
-const Text = styled("span") <{
-  font?: string
-  bold?: boolean
-  color?: string
-  size?: number
+`;
+const Text = styled("span")<{
+  font?: string;
+  bold?: boolean;
+  color?: string;
+  size?: number;
 }>`
   font-family: ${(props) => props.font || "Poppins-Light"};
   color: ${(props) => props.color};
   font-size: ${(props) => props.size}rem;
-`
-const Row = styled("div") <{ marginTop?: number; marginBottom?: number }>`
+`;
+const Row = styled("div")<{ marginTop?: number; marginBottom?: number }>`
   margin-top: ${(props) => props.marginTop}rem;
   margin-bottom: ${(props) => props.marginBottom}rem;
   display: flex;
   flex-direction: row;
-`
+`;
 const TabSection = styled.div`
   width: 100%;
   padding: 0 4%;
-`
+`;
 const TabWrap = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
   border-bottom: 1px solid lightgray;
-`
+`;
 
-const Tab = styled("div") <{ active?: boolean }>`
+const Tab = styled("div")<{ active?: boolean }>`
   font-family: ${(props) =>
     props.active ? "Poppins-SemiBold" : "Poppins-Regular"};
   font-size: 1rem;
@@ -371,8 +372,8 @@ const Tab = styled("div") <{ active?: boolean }>`
   padding-bottom: 0.5rem;
   border-bottom: ${(props) => (props.active ? 3 : 0)}px solid #000000;
   cursor: pointer;
-`
+`;
 const ActiveTabWrap = styled.div`
   width: 100%;
   padding: 0 4%;
-`
+`;

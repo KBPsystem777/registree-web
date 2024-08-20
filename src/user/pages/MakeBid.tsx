@@ -1,12 +1,12 @@
-import { useState } from "react"
-import { useWeb3React } from "@web3-react/core"
-import { ethers } from "ethers"
+import { useState } from "react";
+import { useWeb3React } from "@web3-react/core";
+import { ethers } from "ethers";
 
-import { errorCatcher } from "../../utils/helpers"
+import { errorCatcher } from "../../utils/helpers";
 
-import { logNftTransaction } from "../../api/Nft"
-import { useModalContext } from "../../hooks/ModalContext"
-import { placeBid } from "../../blockchain/actions/MLInvestorsMarketplace"
+import { logNftTransaction } from "../../api/Nft";
+import { useModalContext } from "../../hooks/ModalContext";
+import { placeBid } from "../../blockchain/actions/MLInvestorsMarketplace";
 
 import {
   Text,
@@ -17,76 +17,45 @@ import {
   TokenStandard,
   WaitingForApproval,
   Button,
-} from "./styles/MakeBid.style"
+} from "./styles/MakeBid.style";
 
-import Base from "./TransactionModalBase"
+import Base from "./TransactionModalBase";
 
 /*** @note @todo Make this bidding form a reusable one
  * for both NFTi and MLRE biddings.
  */
 export default function MakeBid({ nft, closeModal }: any) {
-  const [loading, setLoading] = useState(false)
-  const [amount, setAmount] = useState("")
-  const [error, setError] = useState("")
-  const [makingOffer, setMakingOffer] = useState(false)
+  const [loading, setLoading] = useState(false);
+  const [amount, setAmount] = useState("");
+  const [error, setError] = useState("");
+  const [makingOffer, setMakingOffer] = useState(false);
   // @ts-ignore
   const { setLoadingMessage, setErrorMessage, setSuccessMessage } =
-    useModalContext()
-  const { account } = useWeb3React()
+    useModalContext();
+  const { account } = useWeb3React();
 
   const handleChange = (e: any) => {
-    setAmount(e.target.value)
+    setAmount(e.target.value);
 
     if (isNaN(e.target.value)) {
-      setError("Please enter a valid amount.")
+      setError("Please enter a valid amount.");
     } else {
-      setError("")
+      setError("");
     }
-  }
+  };
 
   async function handleMakeOfferClick() {
-    try {
-      if (account) {
-        setLoading(true)
-        setMakingOffer(true)
+    setLoading(true);
+    setMakingOffer(true);
 
-        const txBid = await placeBid(
-          amount,
-          nft?.property_id || nft?.propertyId
-        )
-        console.log(txBid)
-        if (txBid) {
-          const res = await logNftTransaction(
-            nft?.property_id || nft?.propertyId,
-            "bid",
-            "bidEntered",
-            txBid.transactionHash,
-            txBid.from,
-            txBid.to,
-            ethers.utils.formatUnits(txBid.gasUsed),
-            Number(amount),
-            txBid.events,
-            txBid.logs,
-            "",
-            "nfti"
-          )
-          console.log(res)
-          setSuccessMessage("Bid success.")
-        } else {
-          setErrorMessage("Bid failed.")
-        }
-
-        setMakingOffer(false)
-        closeModal()
-      }
-    } catch (e) {
-      setErrorMessage(errorCatcher(e))
-      setMakingOffer(false)
-      setLoading(false)
-    }
+    setTimeout(() => {
+      setSuccessMessage("Pledge submitted!");
+      setMakingOffer(false);
+      closeModal();
+    }, 5000);
   }
 
-  const minimumBidAmount = Number(nft?.minSalePrice * 0.5).toFixed(1)
+  const minimumBidAmount = Number(nft?.minSalePrice * 0.5).toFixed(1);
 
   /***
    * This variable controls whether the Make an Offer button is enabled or not.
@@ -98,11 +67,11 @@ export default function MakeBid({ nft, closeModal }: any) {
   const locked =
     isNaN(Number(amount)) ||
     (!isNaN(Number(amount)) && Number(amount) < Number(minimumBidAmount)) ||
-    loading
+    loading;
 
   return (
     <Base
-      title={`Bidding for ${nft?.name}`}
+      title={`Pledging for Mindoro lot`}
       inProcess={makingOffer}
       close={() => (makingOffer ? null : closeModal())}
     >
@@ -112,7 +81,7 @@ export default function MakeBid({ nft, closeModal }: any) {
             <div style={{ marginRight: "1rem" }}>
               <i className="fa fa-circle-o-notch fa-spin"></i>
             </div>
-            <Text font="Poppins-SemiBold">Confirm bid</Text>
+            <Text font="Poppins-SemiBold">Confirming your pledge</Text>
           </Row>
           <Row marginTop={1} marginLeft={2}>
             <Text font="Poppins-Regular">
@@ -126,14 +95,12 @@ export default function MakeBid({ nft, closeModal }: any) {
       ) : (
         <OfferReady marginTop={3}>
           <RowJustified>
-            <TokenStandard />
+            PHP
             <Input
-              placeholder={`Minimum bid amount: ETH ${Number(
-                minimumBidAmount
-              )}`}
+              placeholder={`Minimum bid amount: PHP 2,000`}
               value={amount}
               onChange={handleChange}
-              min={nft?.minSalePrice * 0.98}
+              min={2000}
             />
           </RowJustified>
           <RowJustified>
@@ -154,11 +121,11 @@ export default function MakeBid({ nft, closeModal }: any) {
               disabled={locked}
               onClick={() => handleMakeOfferClick()}
             >
-              Submit bid
+              Submit pledge
             </Button>
           </RowJustified>
         </OfferReady>
       )}
     </Base>
-  )
+  );
 }

@@ -1,58 +1,58 @@
-import { useEffect, useRef, useState } from "react"
-import styled from "styled-components"
-import Logo from "../../assets/images/ML Logo Blue Inline.png"
-import SearchIcon from "../../assets/images/search-icon.svg"
-import WalletIcon from "../../assets/images/wallet.svg"
-import { DropdownButton } from "react-bootstrap"
-import { truncate } from "../../utils/helpers"
-import { Breakpoint } from "../../constants"
-import { useSelector } from "react-redux"
-import { useNavigate, NavLink } from "react-router-dom"
-import { useWeb3React } from "@web3-react/core"
-import { useWeb3StateAction } from "../../redux/actions/useWeb3StateAction"
-import { useModalContext } from "../../hooks/ModalContext"
-import WalletConnect from "../../components/global/WalletConnect"
+import { useEffect, useRef, useState } from "react";
+import styled from "styled-components";
+import Logo from "../../assets/images/ML Logo Blue Inline.png";
+import SearchIcon from "../../assets/images/search-icon.svg";
+import WalletIcon from "../../assets/images/wallet.svg";
+import { DropdownButton } from "react-bootstrap";
+import { truncate } from "../../utils/helpers";
+import { Breakpoint } from "../../constants";
+import { useSelector } from "react-redux";
+import { useNavigate, NavLink } from "react-router-dom";
+import { useWeb3React } from "@web3-react/core";
+import { useWeb3StateAction } from "../../redux/actions/useWeb3StateAction";
+import { useModalContext } from "../../hooks/ModalContext";
+import WalletConnect from "../../components/global/WalletConnect";
 
 export default function MarketPlaceHeader() {
-  const refContainer = useRef<HTMLDivElement>(null)
+  const refContainer = useRef<HTMLDivElement>(null);
   // @ts-ignore
-  const { web3State, utilState } = useSelector((state) => state)
-  const { deactivate, account } = useWeb3React()
-  const navigate = useNavigate()
+  const { web3State, utilState } = useSelector((state) => state);
+  const { deactivate, account } = useWeb3React();
+  const navigate = useNavigate();
   // @ts-ignore
-  const { setModalChildren, setOpen } = useModalContext()
-  const role = localStorage.getItem("role")
+  const { setModalChildren, setOpen } = useModalContext();
+  const role = localStorage.getItem("role");
   const { updateAccount, updateProvider, updateChainId, updateWeb3Modal } =
-    useWeb3StateAction()
+    useWeb3StateAction();
 
   function handleMyCollectionsClick() {
-    navigate("/collections/account")
+    navigate("/collections/account");
   }
   async function handleLogoutClick() {
-    localStorage.clear()
-    await deactivate()
+    localStorage.clear();
+    await deactivate();
 
-    updateAccount("")
-    updateProvider(null)
-    updateChainId(0)
-    updateWeb3Modal(null)
-    navigate("/")
+    updateAccount("");
+    updateProvider(null);
+    updateChainId(0);
+    updateWeb3Modal(null);
+    navigate("/");
   }
 
   async function openWalletModal() {
-    setModalChildren(<WalletConnect onClose={() => setOpen(false)} />)
-    setOpen(true)
+    setModalChildren(<WalletConnect onClose={() => setOpen(false)} />);
+    setOpen(true);
   }
 
   useEffect(() => {
     if (refContainer.current) {
       if (utilState.removeHeaderBorder) {
-        refContainer.current.style.borderBottom = "1px solid rgba(0,0,0,0)"
+        refContainer.current.style.borderBottom = "1px solid rgba(0,0,0,0)";
       } else {
-        refContainer.current.style.borderBottom = "1px solid rgba(0,0,0,0.1)"
+        refContainer.current.style.borderBottom = "1px solid rgba(0,0,0,0.1)";
       }
     }
-  }, [utilState.removeHeaderBorder])
+  }, [utilState.removeHeaderBorder]);
 
   return (
     <Container ref={refContainer}>
@@ -69,12 +69,13 @@ export default function MarketPlaceHeader() {
           src={Logo}
           onClick={() =>
             navigate(
-              `${role
-                ? role === "admin"
-                  ? "/"
-                  : "/collections/account"
-                : "/marketplace"
-              }`
+              `${
+                role
+                  ? role === "admin"
+                    ? "/"
+                    : "/collections/account"
+                  : "/marketplace"
+              }`,
             )
           }
         />
@@ -115,7 +116,7 @@ export default function MarketPlaceHeader() {
         </DropdownButtonWrap>
       </div>
     </Container>
-  )
+  );
 }
 
 const Container = styled.div`
@@ -129,12 +130,12 @@ const Container = styled.div`
   padding: 0 4%;
   @media (max-width: ${(props) => Breakpoint.md}) {
   }
-`
+`;
 const HeaderImage = styled.img`
   height: 100%;
   margin-right: 3.3%;
   cursor: pointer;
-`
+`;
 const SearchInputWrap = styled.div`
   width: 50%;
   height: 2.6rem;
@@ -147,17 +148,17 @@ const SearchInputWrap = styled.div`
   @media (max-width: ${(props) => Breakpoint.md}) {
     display: none;
   }
-`
+`;
 const SearchInputImage = styled.img`
   height: 50%;
   padding: 0 1rem;
-`
+`;
 const SearchInput = styled.input`
   outline: none;
   border: none;
   width: 100%;
   height: 100%;
-`
+`;
 const DDItem = styled.div`
   width: 100%;
   background-color: transparent;
@@ -170,14 +171,14 @@ const DDItem = styled.div`
   &:hover {
     background-color: rgba(242, 242, 242, 0.5);
   }
-`
+`;
 const DropdownButtonWrap = styled.div`
   position: absolute;
   right: 4%;
   display: flex;
   flex-direction: row;
   align-items: center;
-`
+`;
 // const WalletLoginButton = styled.div`
 //     background: #2D72A7;
 //     color: #ffffff;
@@ -189,8 +190,8 @@ const WalletLoginButton = styled.img`
   width: 2.5rem;
   height: 2.5rem;
   cursor: pointer;
-`
+`;
 const MarketPlaceLink = styled.div`
   font-family: Poppins-SemiBold;
   margin-right: 2rem;
-`
+`;
