@@ -55,7 +55,7 @@ export default function MakeBid({ nft, closeModal }: any) {
     }, 5000);
   }
 
-  const minimumBidAmount = Number(nft?.minSalePrice * 0.5).toFixed(1);
+  const minimumBidAmount = 1;
 
   /***
    * This variable controls whether the Make an Offer button is enabled or not.
@@ -71,7 +71,7 @@ export default function MakeBid({ nft, closeModal }: any) {
 
   return (
     <Base
-      title={`Pledging for Mindoro lot`}
+      title={`Pledging for Tunga Farm`}
       inProcess={makingOffer}
       close={() => (makingOffer ? null : closeModal())}
     >
@@ -97,10 +97,10 @@ export default function MakeBid({ nft, closeModal }: any) {
           <RowJustified>
             PHP
             <Input
-              placeholder={`Minimum bid amount: PHP 2,000`}
+              placeholder={`Minimum share: 1`}
               value={amount}
               onChange={handleChange}
-              min={2000}
+              min={1}
             />
           </RowJustified>
           <RowJustified>

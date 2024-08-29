@@ -10,10 +10,10 @@
       "transactionStatus": "success",
       "type": "sale",
       "nftData": {
-        "name": "Mindoro Lot",
+        "name": "Tunga Farm 001",
         "description": "2 Hectares lot in Mindoro",
         "externalLink": "",
-        "image": "https://glenhill.co.nz/images/bfi_1.jpg",
+        "image": "https://i.postimg.cc/JhwpScSf/Screenshot-2024-08-29-204940.png",
         "youtubeUrl": "",
         "animationUrl": "",
         "ownerName": "ManageLife",
@@ -96,10 +96,10 @@
       "transactionStatus": "success",
       "type": "sale",
       "nftData": {
-        "name": "Mindoro Lot",
+        "name": "Tunga Farm 002",
         "description": "2 Hectares lot in Mindoro",
         "externalLink": "",
-        "image": "https://glenhill.co.nz/images/bfi_1.jpg",
+        "image": "https://i.postimg.cc/JhwpScSf/Screenshot-2024-08-29-204940.png",
         "youtubeUrl": "",
         "animationUrl": "",
         "ownerName": "ManageLife",
@@ -182,182 +182,10 @@
       "transactionStatus": "success",
       "type": "sale",
       "nftData": {
-        "name": "Mindoro Lot",
+        "name": "Tunga Farm 003",
         "description": "2 Hectares lot in Mindoro",
         "externalLink": "",
-        "image": "https://glenhill.co.nz/images/bfi_1.jpg",
-        "youtubeUrl": "",
-        "animationUrl": "",
-        "ownerName": "ManageLife",
-        "doingBusinessAs": "ManageLife",
-        "propertyId": 0,
-        "geoId": "29.7571414, -98.07923629999999",
-        "legalDescription": "NA",
-        "stateCode": "TX",
-        "taxJurisdictions": "NA",
-        "appraisedValue": null,
-        "neighborhood": "",
-        "abstractCode": "NA",
-        "ccrDeclaration": "NA",
-        "operatingAgreement": "Yes",
-        "membershipContract": "0x81178579113da63EfA5C22f6CC21dFD3C2388735",
-        "daoContract": "0x81178579113da63EfA5C22f6CC21dFD3C2388735",
-        "heating": "",
-        "cooling": "",
-        "from": "",
-        "to": "",
-        "hasNft": null,
-        "views": 409,
-        "status": "",
-        "_id": "631e5fbc07b5e6f888430f7b",
-        "attributes": [
-          {
-            "trait_type": "year_built",
-            "display_type": "date",
-            "_id": "6579dba6e432b1001ee5104e",
-            "value": 2000
-          },
-          {
-            "trait_type": "property_valuation",
-            "display_type": "number",
-            "_id": "6579dba6e432b1001ee51050",
-            "value": 520000
-          },
-          {
-            "trait_type": "square_feet",
-            "display_type": "number",
-            "_id": "6579dba7e432b1001ee51065",
-            "value": "2,573"
-          },
-          {
-            "trait_type": "lot_size",
-            "display_type": "number",
-            "_id": "6579dba7e432b1001ee51066",
-            "value": "6,098 sqft"
-          },
-          {
-            "trait_type": "bedrooms",
-            "display_type": "number",
-            "_id": "65a7dcb7e4e17c001e34e57f",
-            "value": 4
-          },
-          {
-            "trait_type": "bathrooms",
-            "display_type": "number",
-            "_id": "65a7dcb7e4e17c001e34e580",
-            "value": 4
-          }
-        ],
-        "standoutFeatures": [],
-        "address": {
-          "address1": "",
-          "address2": "",
-          "city": "",
-          "state": "",
-          "country": "",
-          "zipCode": "",
-          "_id": "6579dba6e432b1001ee51051"
-        }
-      }
-    },
-    {
-      "transactionHash": "0xd6814d64b2a89f8731ceaf69ddf6d528b7280b66d3641c59b94a162ffcb6444d",
-      "id": 0,
-      "minSalePrice": 2000,
-      "status": "listed",
-      "transactionStatus": "success",
-      "type": "sale",
-      "nftData": {
-        "name": "Mindoro Lot",
-        "description": "2 Hectares lot in Mindoro",
-        "externalLink": "",
-        "image": "https://glenhill.co.nz/images/bfi_1.jpg",
-        "youtubeUrl": "",
-        "animationUrl": "",
-        "ownerName": "ManageLife",
-        "doingBusinessAs": "ManageLife",
-        "propertyId": 0,
-        "geoId": "29.7571414, -98.07923629999999",
-        "legalDescription": "NA",
-        "stateCode": "TX",
-        "taxJurisdictions": "NA",
-        "appraisedValue": null,
-        "neighborhood": "",
-        "abstractCode": "NA",
-        "ccrDeclaration": "NA",
-        "operatingAgreement": "Yes",
-        "membershipContract": "0x81178579113da63EfA5C22f6CC21dFD3C2388735",
-        "daoContract": "0x81178579113da63EfA5C22f6CC21dFD3C2388735",
-        "heating": "",
-        "cooling": "",
-        "from": "",
-        "to": "",
-        "hasNft": null,
-        "views": 409,
-        "status": "",
-        "_id": "631e5fbc07b5e6f888430f7b",
-        "attributes": [
-          {
-            "trait_type": "year_built",
-            "display_type": "date",
-            "_id": "6579dba6e432b1001ee5104e",
-            "value": 2000
-          },
-          {
-            "trait_type": "property_valuation",
-            "display_type": "number",
-            "_id": "6579dba6e432b1001ee51050",
-            "value": 520000
-          },
-          {
-            "trait_type": "square_feet",
-            "display_type": "number",
-            "_id": "6579dba7e432b1001ee51065",
-            "value": "2,573"
-          },
-          {
-            "trait_type": "lot_size",
-            "display_type": "number",
-            "_id": "6579dba7e432b1001ee51066",
-            "value": "6,098 sqft"
-          },
-          {
-            "trait_type": "bedrooms",
-            "display_type": "number",
-            "_id": "65a7dcb7e4e17c001e34e57f",
-            "value": 4
-          },
-          {
-            "trait_type": "bathrooms",
-            "display_type": "number",
-            "_id": "65a7dcb7e4e17c001e34e580",
-            "value": 4
-          }
-        ],
-        "standoutFeatures": [],
-        "address": {
-          "address1": "",
-          "address2": "",
-          "city": "",
-          "state": "",
-          "country": "",
-          "zipCode": "",
-          "_id": "6579dba6e432b1001ee51051"
-        }
-      }
-    },
-    {
-      "transactionHash": "0xd6814d64b2a89f8731ceaf69ddf6d528b7280b66d3641c59b94a162ffcb6444d",
-      "id": 0,
-      "minSalePrice": 2000,
-      "status": "listed",
-      "transactionStatus": "success",
-      "type": "sale",
-      "nftData": {
-        "name": "Mindoro Lot",
-        "description": "2 Hectares lot in Mindoro",
-        "externalLink": "",
-        "image": "https://glenhill.co.nz/images/bfi_1.jpg",
+        "image": "https://i.postimg.cc/JhwpScSf/Screenshot-2024-08-29-204940.png",
         "youtubeUrl": "",
         "animationUrl": "",
         "ownerName": "ManageLife",

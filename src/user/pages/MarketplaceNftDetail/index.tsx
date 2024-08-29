@@ -535,7 +535,7 @@ export default function MarketplaceNftDetail() {
                   <CellJustified>
                     <Row>
                       <Text size={1.9} font="Poppins-SemiBold">
-                        Mindoro Farm #7
+                        Tunga Farm 001
                       </Text>
                     </Row>
                     <MoreButtons
@@ -621,7 +621,7 @@ export default function MarketplaceNftDetail() {
                     <CellJustified>
                       <Row>
                         <Text size={1.9} font="Poppins-SemiBold">
-                          Mindoro Farm #7
+                          Tunga Farm 002
                         </Text>
                       </Row>
                       <MoreButtons
@@ -692,11 +692,11 @@ export default function MarketplaceNftDetail() {
                               <CurrentPrice>
                                 <CPLabel>Current price</CPLabel>
                                 <CPValueWrapRow>
-                                  <CPValue>{`PHP 2,000 = 1 Slot`}</CPValue>
+                                  <CPValue>{`PHP 2,000 = 1 Share`}</CPValue>
                                 </CPValueWrapRow>
                               </CurrentPrice>
                             </Row>
-                            <Row>77/500 Slots left</Row>
+                            <Row>423/500 Slots left</Row>
                           </SaleEndsDetail>
                         </AccordionBody>
                       </AccordionItem>

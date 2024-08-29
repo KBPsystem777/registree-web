@@ -29,7 +29,7 @@ export default function DescriptionAccordion({
       </AccordionItem>
       <AccordionItem eventKey={1}>
         <AccordionHeader eventKey={1} expand>
-          Description of Mindoro Farm
+          Description of Tunga Farm
         </AccordionHeader>
         <AccordionBody eventKey={1}>
           <Col w={100}>
@@ -70,7 +70,7 @@ export default function DescriptionAccordion({
       </AccordionItem>
 
       <AccordionItem eventKey={4}>
-        <AccordionHeader eventKey={4}>NFT Details</AccordionHeader>
+        <AccordionHeader eventKey={4}>Farm Details</AccordionHeader>
         <AccordionBody eventKey={4}>
           <DetailsWrap>
             <CellJustified>
